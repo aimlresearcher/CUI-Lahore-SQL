@@ -1,75 +1,27 @@
-COUNT():
-Counts the number of rows in a result set.
+-- the GROUP BY clause is used in SQL to group rows based on the values in one or more columns. 
+-- This is often used in conjunction with aggregate functions like COUNT, SUM, AVG, etc., to perform calculations on each group of rows.
 
+-- Let's go through a few examples using the TennisData dataset:
 
-SUM():
-Calculates the sum of values in a numeric column.
+-- Example 1: Count the Number of Days for Each Outlook
 
-AVG():
-Calculates the average value of a numeric column.
+-- SELECT Outlook, COUNT(*) AS OutlookCount
+-- FROM TennisData
+-- GROUP BY Outlook;
 
-MIN():
-Finds the minimum value in a column.
+-- This query groups the data by the Outlook column and counts the number of occurrences for each unique outlook. The result might look like
 
-MAX():
-Finds the maximum value in a column.
+-- Example 2: Count the Number of Days for Each Combination of Outlook and Humidity
+-- SELECT Outlook, Humidity, COUNT(*) AS Count
+-- FROM TennisData
+-- GROUP BY Outlook, Humidity;
 
-GROUP_CONCAT():
-Concatenates values from multiple rows into a single string.
+-- This query groups the data by both the Outlook and Humidity columns, counting the occurrences for each unique combination. The result might look like
+-- Example 3: Calculate the Average Number of Tennis Days for Each Temperature
+-- SELECT Temp, AVG(CASE WHEN Tennis = 'Yes' THEN 1 ELSE 0 END) AS AvgTennisDays
+-- FROM TennisData
+-- GROUP BY Temp;
 
-STDEV() and STDEVP():
-Calculate the standard deviation of a set of values (STDEV) or a population (STDEVP).
+-- This query calculates the average number of days tennis was played for each temperature category. It uses a conditional aggregation with the CASE statement to count only the days where tennis was played. The result might look like:
 
-VAR() and VARP():
-Calculate the variance of a set of values (VAR) or a population (VARP).
-
-GROUPING():
-Identifies whether a specified column is aggregated or not in a GROUP BY query.
-
-CHECKSUM_AGG():
-Generates a checksum value over a group of rows.
-
-STRING_AGG():
-Concatenates the values from a column into a single string using a specified separator.
-
-FIRST_VALUE() and LAST_VALUE():
-Returns the first and last values within an ordered partition of a result set.
-
-PERCENTILE_CONT() and PERCENTILE_DISC():
-Calculate a specified percentile value within a group of rows.
-
-NTILE():
-Distributes the rows of a result set into a specified number of roughly equal groups.
-
-LEAD() and LAG():
-Access data from a subsequent row (LEAD) or a preceding row (LAG) in the result set.
-
-ROW_NUMBER(), RANK(), DENSE_RANK(), and NTH_VALUE():
-Assigns a unique row number (ROW_NUMBER), a rank (RANK), a dense rank (DENSE_RANK), or retrieves the nth value in a windowed result set (NTH_VALUE).
-
-PERCENT_RANK():
-Calculates the relative rank of a row within a result set.
-
-XMLAGG():
-Aggregates values into an XML document.
-
-BIT_AND() and BIT_OR():
-Performs bitwise AND (BIT_AND) and bitwise OR (BIT_OR) operations on a set of values.
-
-CUME_DIST():
-Calculates the cumulative distribution of a value within a result set.
-
-LAG() and LEAD():
-Access data from a preceding row (LAG) or a subsequent row (LEAD) in the result set.
-
-SYSNAME():
-Returns the system-supplied data type for system metadata.
-
-CHECKSUM():
-Generates a checksum value over a set of expressions.
-
-COALESCE():
-Returns the first non-null expression among its arguments.
-
-CONCAT():
-Concatenates two or more strings.
+-- These examples demonstrate how the GROUP BY clause can be used to analyze and aggregate data based on different columns in the TennisData table. It allows you to gain insights into patterns and trends within the dataset.

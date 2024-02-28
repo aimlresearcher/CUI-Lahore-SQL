@@ -1,0 +1,27 @@
+create database test;
+go
+use test;
+go
+CREATE TABLE weatherData (
+    Day VARCHAR(20),
+    Outlook VARCHAR(40),
+    Temp VARCHAR(40),
+    Humidity VARCHAR(20),
+    Wind VARCHAR(40),
+    Tennis VARCHAR(30)
+);
+go
+INSERT INTO TennisData VALUES ('D1', 'Sunny', 'Hot', 'High', 'Weak', 'No');
+INSERT INTO TennisData VALUES ('D2', 'Sunny', 'Hot', 'High', 'Strong', 'No');
+INSERT INTO TennisData VALUES ('D3', 'Overcast', 'Hot', 'High', 'Weak', 'Yes');
+INSERT INTO TennisData VALUES ('D4', 'Rain', 'Mild', 'High', 'Weak', 'Yes');
+INSERT INTO TennisData VALUES ('D5', 'Rain', 'Cool', 'Normal', 'Weak', 'Yes');
+INSERT INTO TennisData VALUES ('D6', 'Rain', 'Cool', 'Normal', 'Strong', 'No');
+INSERT INTO TennisData VALUES ('D7', 'Overcast', 'Cool', 'Normal', 'Strong', 'Yes');
+INSERT INTO TennisData VALUES ('D8', 'Sunny', 'Mild', 'High', 'Weak', 'No');
+INSERT INTO TennisData VALUES ('D9', 'Sunny', 'Cool', 'Normal', 'Weak', 'Yes');
+INSERT INTO TennisData VALUES ('D10', 'Rain', 'Mild', 'Normal', 'Weak', 'Yes');
+INSERT INTO TennisData VALUES ('D11', 'Sunny', 'Mild', 'Normal', 'Strong', 'Yes');
+INSERT INTO TennisData VALUES ('D12', 'Overcast', 'Mild', 'High', 'Strong', 'Yes');
+INSERT INTO TennisData VALUES ('D13', 'Overcast', 'Hot', 'Normal', 'Weak', 'Yes');
+INSERT INTO TennisData VALUES ('D14', 'Rain', 'Mild', 'High', 'Strong', 'No');
