@@ -1,168 +1,209 @@
--- Select all data from the table:
+-- 1) Select all data from the table:
+SELECT * FROM TennisData;
 
 
+-- 2) Select distinct outlook values:
+SELECT DISTINCT Outlook FROM TennisData;
 
--- Select distinct outlook values:
 
+-- 3) Count the number of occurrences for each outlook:
+SELECT Outlook, COUNT(*) AS OutlookCount FROM TennisData GROUP BY Outlook;
 
 
--- Count the number of occurrences for each outlook:
+-- 4) Select days where tennis was played:
+SELECT * FROM TennisData WHERE Tennis = 'Yes';
 
 
+-- 5) Select days where tennis was not played and the weather was sunny:
+SELECT * FROM TennisData WHERE Tennis = 'No' AND Outlook = 'Sunny';
 
--- Select days where tennis was played:
 
+-- 6) Select days with high humidity where tennis was played:
+SELECT * FROM TennisData WHERE Humidity = 'High' AND Tennis = 'Yes';
 
 
--- Select days where tennis was not played and the weather was sunny:
+-- 7) Select days with a cool temperature and strong wind where tennis was played:
+SELECT * FROM TennisData WHERE Temp = 'Cool' AND Wind = 'Strong' AND Tennis = 'Yes';
 
 
+-- 8) Count the total number of days in the dataset:
+SELECT COUNT(*) AS TotalDays FROM TennisData;
 
--- Select days with high humidity where tennis was played:
 
+-- 9) Select days with overcast weather where tennis was played and the temperature was hot:
+SELECT * FROM TennisData WHERE Outlook = 'Overcast' AND Tennis = 'Yes' AND Temp = 'Hot';
 
 
--- Select days with a cool temperature and strong wind where tennis was played:
+-- 10) Select days where tennis was played and the wind was weak or the humidity was normal:
+SELECT * FROM TennisData WHERE Tennis = 'Yes' AND (Wind = 'Weak' OR Humidity = 'Normal');
 
+-- 11) Select days where tennis was not played and the outlook was either sunny or overcast:
+SELECT * FROM TennisData WHERE Tennis = 'No' AND (Outlook = 'Sunny' OR Outlook = 'Overcast');
 
+-- 12) Select days with mild temperature where tennis was played and the wind was not strong:
+SELECT * FROM TennisData WHERE Temp = 'Mild' AND Wind != 'Strong' AND Tennis = 'Yes';
 
--- Count the total number of days in the dataset:
+-- 13) Count the number of days where tennis was played in each temperature category:
+SELECT Temp, COUNT(*) AS TennisCount FROM TennisData WHERE Tennis = 'Yes' GROUP BY Temp;
 
 
+-- 14) Select days where tennis was played and the outlook was not rainy:
+SELECT * FROM TennisData WHERE Tennis = 'Yes' AND Outlook != 'Rain';
 
--- Select days with overcast weather where tennis was played and the temperature was hot:
 
+-- 15) Select days where tennis was played and the humidity was high or the wind was strong:
+SELECT * FROM TennisData WHERE Tennis = 'Yes' AND (Humidity = 'High' OR Wind = 'Strong');
 
 
--- Select days where tennis was played and the wind was weak or the humidity was normal:
+-- 16) Count the number of days where tennis was not played:
+SELECT COUNT(*) AS NoTennisDays FROM TennisData WHERE Tennis = 'No';
 
 
--- Select days where tennis was not played and the outlook was either sunny or overcast:
+-- 17) Select days where tennis was played and the outlook was either sunny or overcast, and the wind was weak:
+SELECT * FROM TennisData WHERE Tennis = 'Yes' AND (Outlook = 'Sunny' OR Outlook = 'Overcast') AND Wind = 'Weak';
 
 
--- Select days with mild temperature where tennis was played and the wind was not strong:
+-- 18) Select days where tennis was not played and the temperature was mild or the wind was strong:
+SELECT * FROM TennisData WHERE Tennis = 'No' AND (Temp = 'Mild' OR Wind = 'Strong');
 
 
--- Count the number of days where tennis was played in each temperature category:
+-- 19) Count the number of days where tennis was played with each combination of outlook and humidity:
+SELECT Outlook, Humidity, COUNT(*) AS TennisCount FROM TennisData WHERE Tennis = 'Yes' GROUP BY Outlook, Humidity;
 
 
--- Select days where tennis was played and the outlook was not rainy:
+-- 20) Select days where tennis was played and the temperature was hot, and the humidity was not high:
+SELECT * FROM TennisData WHERE Tennis = 'Yes' AND Temp = 'Hot' AND Humidity != 'High';
 
 
--- Select days where tennis was played and the humidity was high or the wind was strong:
+-- 21) Select days where tennis was played and the weather was not rainy or the wind was not strong:
+SELECT * FROM TennisData WHERE Tennis = 'Yes' AND (Outlook != 'Rain' OR Wind != 'Strong');
 
 
--- Count the number of days where tennis was not played:
+-- 22) Select days where tennis was not played and the outlook was rainy or the temperature was cool:
+SELECT * FROM TennisData WHERE Tennis = 'No' AND (Outlook = 'Rain' OR Temp = 'Cool');
 
 
--- Select days where tennis was played and the outlook was either sunny or overcast, and the wind was weak:
+-- 23) Count the number of days where tennis was played in each humidity category:
+SELECT Humidity, COUNT(*) AS TennisCount FROM TennisData WHERE Tennis = 'Yes' GROUP BY Humidity;
 
 
--- Select days where tennis was not played and the temperature was mild or the wind was strong:
+-- 24) Select days where tennis was played and the outlook was sunny, and the humidity was normal:
+SELECT * FROM TennisData WHERE Tennis = 'Yes' AND Outlook = 'Sunny' AND Humidity = 'Normal';
 
 
--- Count the number of days where tennis was played with each combination of outlook and humidity:
+-- 25) Select days where tennis was played and the temperature was cool or the wind was weak:
+SELECT * FROM TennisData WHERE Tennis = 'Yes' AND (Temp = 'Cool' OR Wind = 'Weak');
 
 
--- Select days where tennis was played and the temperature was hot, and the humidity was not high:
+-- 26) Count the number of days where tennis was not played with each combination of outlook and wind:
+SELECT Outlook, Wind, COUNT(*) AS NoTennisCount FROM TennisData WHERE Tennis = 'No' GROUP BY Outlook, Wind;
 
 
--- Select days where tennis was played and the weather was not rainy or the wind was not strong:
+-- 27) Select days where tennis was not played and the outlook was overcast, and the humidity was high:
+SELECT * FROM TennisData WHERE Tennis = 'No' AND Outlook = 'Overcast' AND Humidity = 'High';
 
 
--- Select days where tennis was not played and the outlook was rainy or the temperature was cool:
+-- 28) Select days where tennis was played and the temperature was mild, and the humidity was not high:
+SELECT * FROM TennisData WHERE Tennis = 'Yes' AND Temp = 'Mild' AND Humidity != 'High';
 
 
--- Count the number of days where tennis was played in each humidity category:
+-- 29) Count the number of days where tennis was played with each combination of temperature and wind:
+SELECT Temp, Wind, COUNT(*) AS TennisCount FROM TennisData WHERE Tennis = 'Yes' GROUP BY Temp, Wind;
 
 
--- Select days where tennis was played and the outlook was sunny, and the humidity was normal:
+-- 30) Select days where tennis was not played and the outlook was rainy, and the wind was strong:
+SELECT * FROM TennisData WHERE Tennis = 'No' AND Outlook = 'Rain' AND Wind = 'Strong';
 
 
--- Select days where tennis was played and the temperature was cool or the wind was weak:
+-- 31) Select days where tennis was played and the outlook was not rainy or the temperature was hot:
+SELECT * FROM TennisData WHERE Tennis = 'Yes' AND (Outlook != 'Rain' OR Temp = 'Hot');
 
 
--- Count the number of days where tennis was not played with each combination of outlook and wind:
+-- 32) Select days where tennis was played and the humidity was high, and the wind was not strong:
+SELECT * FROM TennisData WHERE Tennis = 'Yes' AND Humidity = 'High' AND Wind != 'Strong';
 
 
--- Select days where tennis was not played and the outlook was overcast, and the humidity was high:
+-- 33) Count the number of days where tennis was played in each wind category:
+SELECT Wind, COUNT(*) AS TennisCount FROM TennisData WHERE Tennis = 'Yes' GROUP BY Wind;
 
 
--- Select days where tennis was played and the temperature was mild, and the humidity was not high:
+-- 34) Select days where tennis was played and the outlook was sunny, and the humidity was high:
+SELECT * FROM TennisData WHERE Tennis = 'Yes' AND Outlook = 'Sunny' AND Humidity = 'High';
 
 
--- Count the number of days where tennis was played with each combination of temperature and wind:
 
+-- 35) Select days where tennis was played and the temperature was mild, and the wind was weak:
+SELECT * FROM TennisData WHERE Tennis = 'Yes' AND Temp = 'Mild' AND Wind = 'Weak';
 
--- Select days where tennis was not played and the outlook was rainy, and the wind was strong:
 
 
--- Select days where tennis was played and the outlook was not rainy or the temperature was hot:
+-- 36) Count the number of days where tennis was not played in each temperature category:
+SELECT Temp, COUNT(*) AS NoTennisCount FROM TennisData WHERE Tennis = 'No' GROUP BY Temp;
 
 
--- Select days where tennis was played and the humidity was high, and the wind was not strong:
 
+-- 37) Select days where tennis was played and the outlook was overcast, and the wind was strong:
+SELECT * FROM TennisData WHERE Tennis = 'Yes' AND Outlook = 'Overcast' AND Wind = 'Strong';
 
--- Count the number of days where tennis was played in each wind category:
 
 
--- Select days where tennis was played and the outlook was sunny, and the humidity was high:
+-- 38) Select days where tennis was not played and the temperature was hot, and the humidity was not high:
+SELECT * FROM TennisData WHERE Tennis = 'No' AND Temp = 'Hot' AND Humidity != 'High';
 
 
 
--- Select days where tennis was played and the temperature was mild, and the wind was weak:
+-- 39) Count the number of days where tennis was not played with each combination of outlook and humidity:
+SELECT Outlook, Humidity, COUNT(*) AS NoTennisCount FROM TennisData WHERE Tennis = 'No' GROUP BY Outlook, Humidity;
 
 
 
--- Count the number of days where tennis was not played in each temperature category:
+-- 40) Select days where tennis was not played and the outlook was rainy, and the humidity was normal:
+SELECT * FROM TennisData WHERE Tennis = 'No' AND Outlook = 'Rain' AND Humidity = 'Normal';
 
 
 
--- Select days where tennis was played and the outlook was overcast, and the wind was strong:
+-- 41) Select days where tennis was played and the temperature was cool, and the wind was not strong:
+SELECT * FROM TennisData WHERE Tennis = 'Yes' AND Temp = 'Cool' AND Wind != 'Strong';
 
 
 
--- Select days where tennis was not played and the temperature was hot, and the humidity was not high:
+-- 42) Count the number of days where tennis was played with each combination of outlook and wind:
+SELECT Outlook, Wind, COUNT(*) AS TennisCount FROM TennisData WHERE Tennis = 'Yes' GROUP BY Outlook, Wind;
 
 
 
--- Count the number of days where tennis was not played with each combination of outlook and humidity:
+-- 43) Select days where tennis was played and the outlook was sunny, and the humidity was normal:
+SELECT * FROM TennisData WHERE Tennis = 'Yes' AND Outlook = 'Sunny' AND Humidity = 'Normal';
 
 
 
--- Select days where tennis was not played and the outlook was rainy, and the humidity was normal:
+-- 44) Select days where tennis was not played and the temperature was mild, and the wind was strong:
+SELECT * FROM TennisData WHERE Tennis = 'No' AND Temp = 'Mild' AND Wind = 'Strong';
 
 
 
--- Select days where tennis was played and the temperature was cool, and the wind was not strong:
+-- 45) Count the number of days where tennis was not played in each wind category:
+SELECT Wind, COUNT(*) AS NoTennisCount FROM TennisData WHERE Tennis = 'No' GROUP BY Wind;
 
 
+-- 46) Select days where tennis was played and the outlook was overcast, and the humidity was normal:
+SELECT * FROM TennisData WHERE Tennis = 'Yes' AND Outlook = 'Overcast' AND Humidity = 'Normal';
 
--- Count the number of days where tennis was played with each combination of outlook and wind:
 
+-- 47) Select days where tennis was played and the temperature was hot, and the wind was weak:
+SELECT * FROM TennisData WHERE Tennis = 'Yes' AND Temp = 'Hot' AND Wind = 'Weak';
 
 
--- Select days where tennis was played and the outlook was sunny, and the humidity was normal:
+-- 48) Count the number of days where tennis was played with each combination of temperature and humidity:
+SELECT Temp, Humidity, COUNT(*) AS TennisCount FROM TennisData WHERE Tennis = 'Yes' GROUP BY Temp, Humidity;
 
 
+-- 49) Select days where tennis was played and the outlook was sunny, and the wind was not strong:
+SELECT * FROM TennisData WHERE Tennis = 'Yes' AND Outlook = 'Sunny' AND Wind != 'Strong';
 
--- Select days where tennis was not played and the temperature was mild, and the wind was strong:
 
+-- 50) Select days where tennis was not played and the temperature was cool, and the humidity was high:
+SELECT * FROM TennisData WHERE Tennis = 'No' AND Temp = 'Cool' AND Humidity = 'High';
 
 
--- Count the number of days where tennis was not played in each wind category:
 
-
--- Select days where tennis was played and the outlook was overcast, and the humidity was normal:
-
-
--- Select days where tennis was played and the temperature was hot, and the wind was weak:
-
-
--- Count the number of days where tennis was played with each combination of temperature and humidity:
-
-
--- Select days where tennis was played and the outlook was sunny, and the wind was not strong:
-
-
--- Select days where tennis was not played and the temperature was cool, and the humidity was high:
