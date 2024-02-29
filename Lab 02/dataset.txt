@@ -2,8 +2,8 @@ create database test;
 go
 use test;
 go
-CREATE TABLE weatherData (
-    Day VARCHAR(20),
+CREATE TABLE TennisData (
+    Day VARCHAR(20) primary key,
     Outlook VARCHAR(40),
     Temp VARCHAR(40),
     Humidity VARCHAR(20),
