@@ -1,6 +1,5 @@
-SQL FORMAT
-----------
-----------
+SQL
+------
 CREATE TABLE Students (
     StudentID INT PRIMARY KEY,
     Name NVARCHAR(50),
@@ -18,11 +17,8 @@ VALUES
     (2, 'Jane Smith', 21, 'B+', '456 Oak Ave', 'Townsville', 'NY', '67890');
 
 
-
-
 XML
-------
-------
+---
 <students>
     <student>
         <id>001</id>
@@ -54,11 +50,8 @@ XML
 </students>
 
 
-
-
 JSON
-------
-------
+----
 {
   "students": [
     {
@@ -88,4 +81,3 @@ JSON
     // Add more student entries as needed
   ]
 }
-
