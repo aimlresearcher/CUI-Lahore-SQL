@@ -1,0 +1,14 @@
+CREATE TABLE Courses (
+    CourseID INT PRIMARY KEY,
+    CourseName NVARCHAR(50)
+);
+
+CREATE TABLE Students (
+    StudentID INT PRIMARY KEY,
+    StudentName NVARCHAR(50),
+    CourseID INT FOREIGN KEY REFERENCES Courses(CourseID) ON DELETE CASCADE
+);
+
+In this example, the foreign key constraint in the Students table ensures that the CourseID values i
+n the Students table correspond to valid CourseID values in the Courses table, maintaining referential integrity. 
+The ON DELETE CASCADE specifies that if a course is deleted from the Courses table, all related student records will be automatically deleted as well.
